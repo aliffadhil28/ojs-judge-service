@@ -5,7 +5,7 @@ const axios = require("axios");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-  const token = req.session.token;
+  const token = req.headers.authorization.split(" ")[1];
   const decodedToken = ValidateToken(token, res);
   const results = [];
   const feedBacks = [];
